@@ -7,7 +7,7 @@ function Body() {
       <div className="p-4 pb-24">
         <div className="text-xl md:text-2xl">Hello, X.</div>
         <div className="text-base md:text-base text-zinc-400 mb-8">
-          Here's what needs your attention.
+          Here&apos;s what needs your attention.
         </div>
         <div className="flex flex-col gap-2">
           <div className="bg-zinc-800/30 rounded-2xl p-4">
@@ -29,7 +29,7 @@ function Body() {
           </div>
           <div className="bg-zinc-800/30 rounded-2xl p-4">
             <div className="text-base mb-1">
-              You've been assigned to the "Onboarding" project.
+              You&apos;ve been assigned to the &quot;Onboarding&quot; project.
             </div>
             <div className="text-sm text-zinc-400">
               Details of the project are enclosed. Please review and provide
@@ -38,7 +38,7 @@ function Body() {
           </div>
           <div className="bg-zinc-800/30 rounded-2xl p-4">
             <div className="text-base mb-1">
-              You've been assigned to the "Onboarding" project.
+              You&apos;ve been assigned to the &quot;Onboarding&quot; project.
             </div>
             <div className="text-sm text-zinc-400">
               Details of the project are enclosed. Please review and provide
@@ -48,7 +48,7 @@ function Body() {
           
           <div className="bg-zinc-800/30 rounded-2xl p-4">
             <div className="text-base mb-1">
-              You've been assigned to the "Onboarding" project.
+              You&apos;ve been assigned to the &quot;Onboarding&quot; project.
             </div>
             <div className="text-sm text-zinc-400">
               Details of the project are enclosed. Please review and provide
