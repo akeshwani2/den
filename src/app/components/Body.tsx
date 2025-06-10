@@ -133,54 +133,6 @@ const notifications = [
       action: "Please prepare your weekly update and any blockers to discuss.",
     },
   },
-  {
-    id: 9,
-    title: "Weekly team meeting reminder.",
-    subtitle: "Don't forget about tomorrow's team standup at 9:00 AM.",
-    expandedContent: {
-      details: "Meeting Information:",
-      items: [
-        "Date: Tomorrow (Wednesday)",
-        "Time: 9:00 AM - 9:30 AM",
-        "Location: Conference Room B / Zoom",
-        "Agenda: Sprint review, new assignments, Q&A",
-      ],
-      deliveryTime: "Meeting link will be sent 10 minutes before",
-      action: "Please prepare your weekly update and any blockers to discuss.",
-    },
-  },
-  {
-    id: 10,
-    title: "Weekly team meeting reminder.",
-    subtitle: "Don't forget about tomorrow's team standup at 9:00 AM.",
-    expandedContent: {
-      details: "Meeting Information:",
-      items: [
-        "Date: Tomorrow (Wednesday)",
-        "Time: 9:00 AM - 9:30 AM",
-        "Location: Conference Room B / Zoom",
-        "Agenda: Sprint review, new assignments, Q&A",
-      ],
-      deliveryTime: "Meeting link will be sent 10 minutes before",
-      action: "Please prepare your weekly update and any blockers to discuss.",
-    },
-  },
-  {
-    id: 11,
-    title: "Weekly team meeting reminder.",
-    subtitle: "Don't forget about tomorrow's team standup at 9:00 AM.",
-    expandedContent: {
-      details: "Meeting Information:",
-      items: [
-        "Date: Tomorrow (Wednesday)",
-        "Time: 9:00 AM - 9:30 AM",
-        "Location: Conference Room B / Zoom",
-        "Agenda: Sprint review, new assignments, Q&A",
-      ],
-      deliveryTime: "Meeting link will be sent 10 minutes before",
-      action: "Please prepare your weekly update and any blockers to discuss.",
-    },
-  },
 ];
 
 function Body() {
@@ -201,7 +153,7 @@ function Body() {
   return (
     <>
       <div className="p-4 pb-24">
-        <div className="text-xl md:text-2xl">Hello, Arhaan.</div>
+        <div className="text-xl md:text-2xl">Hello, X.</div>
         <div className="text-base md:text-base text-zinc-400 mb-8">
           Here&apos;s what needs your attention.
         </div>
@@ -279,7 +231,7 @@ function Body() {
                       {notification.expandedContent.deliveryTime}
                     </div>
                     <div
-                      className={`text-sm text-zinc-300 bg-zinc-700/30 rounded-lg p-3 transition-all duration-500 ease-out ${
+                      className={`text-sm text-zinc-300 bg-zinc-700/30 rounded-2xl p-3 transition-all duration-500 ease-out ${
                         isExpanded
                           ? "opacity-100 scale-100 translate-y-0"
                           : "opacity-0 scale-95 translate-y-[10px]"
