@@ -6,7 +6,7 @@ export default function PillToggle() {
 
   return (
     <div className="justify-center flex items-center">
-      <div className="fixed bottom-10 flex gap-2 bg-zinc-800 rounded-3xl ">
+      <div className="fixed bottom-5 flex gap-2 bg-zinc-800 rounded-3xl ">
         <div
           className={`absolute top-0 h-full bg-white rounded-3xl transition-all duration-300 ${
             activeTab === "forYou"
