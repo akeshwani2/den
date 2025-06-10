@@ -250,7 +250,7 @@ function Body() {
         </div>
       </div>
       
-      <div className="fixed bottom-0 left-0 right-0 h-0 bg-gradient-to-t from-zinc-950 via-zinc-950/80 to-transparent pointer-events-none z-40" />
+      <div className="fixed bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-zinc-950 via-zinc-950/80 to-transparent pointer-events-none z-40" />
       
       <Pill />
     </>
