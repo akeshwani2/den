@@ -148,7 +148,6 @@ const emails = [
 function Inbox({
   selectedEmail,
   onEmailOpen,
-  onEmailClose,
   isTransitioning = false,
 }: InboxProps) {
   const selectedEmailData = emails.find((email) => email.id === selectedEmail);

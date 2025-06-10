@@ -1,5 +1,4 @@
 "use client";
-import { Pen } from "lucide-react";
 import React from "react";
 
 interface PillToggleProps {
