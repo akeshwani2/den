@@ -238,11 +238,11 @@ function Body() {
   return (
     <>
       {!isEmailOpen && (
-        <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-zinc-950 via-zinc-950/95 to-zinc-950/20 backdrop-blur-sm">
+        <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-black via-black/95 to-black/20 backdrop-blur-xs">
           <Header />
           {activeTab === "forYou" ? (
             <div className="px-4 pb-4">
-              <div className="text-xl md:text-2xl">Hello, X.</div>
+              <div className="text-xl md:text-2xl">Hello, Arhaan.</div>
               <div className="text-base md:text-base text-zinc-400">
                 Here&apos;s what needs your attention.
               </div>

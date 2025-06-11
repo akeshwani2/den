@@ -11,6 +11,7 @@ interface InboxProps {
 const emails = [
   {
     id: 1,
+    sender: "Adobe Creative Cloud",
     title: "Invoice #1234 from Adobe Creative Cloud",
     subtitle: "Your monthly subscription has been charged $52.99",
     expandedContent: {
@@ -28,6 +29,7 @@ const emails = [
   },
   {
     id: 2,
+    sender: "Security Team",
     title: "Security Alert: New login detected",
     subtitle:
       "Someone signed into your account from a new device in San Francisco, CA",
@@ -46,6 +48,7 @@ const emails = [
   },
   {
     id: 3,
+    sender: "UPS Shipping",
     title: "Your order has shipped - Order #789456",
     subtitle: "Tracking number: 1Z999AA1234567890. Expected delivery: Tomorrow",
     expandedContent: {
@@ -63,6 +66,7 @@ const emails = [
   },
   {
     id: 4,
+    sender: "Account Security",
     title: "Password changed successfully",
     subtitle: "Your account password was updated on Jan 15, 2024 at 3:22 PM",
     expandedContent: {
@@ -79,6 +83,7 @@ const emails = [
   },
   {
     id: 5,
+    sender: "GitHub",
     title: "Weekly digest: 47 new updates",
     subtitle: "GitHub notifications, 12 pull requests, 8 issues, 27 commits",
     expandedContent: {
@@ -95,6 +100,7 @@ const emails = [
   },
   {
     id: 6,
+    sender: "Calendar App",
     title: "Calendar reminder: Team standup in 15 minutes",
     subtitle: "Daily standup meeting starts at 9:00 AM in Conference Room B",
     expandedContent: {
@@ -111,6 +117,7 @@ const emails = [
   },
   {
     id: 7,
+    sender: "Sarah Johnson",
     title: "Slack message from Sarah Johnson",
     subtitle: "Hey! Can you review the design mockups I shared yesterday?",
     expandedContent: {
@@ -128,6 +135,7 @@ const emails = [
   },
   {
     id: 8,
+    sender: "Bank of America",
     title: "Bank statement available for December 2023",
     subtitle: "Your monthly statement is ready for download",
     expandedContent: {
@@ -144,6 +152,49 @@ const emails = [
     },
   },
 ];
+
+// Helper function to get initials from sender name
+const getInitials = (name: string): string => {
+  return name
+    .split(' ')
+    .map(word => word.charAt(0))
+    .join('')
+    .substring(0, 2)
+    .toUpperCase();
+};
+
+// Helper function to get avatar color based on sender name
+const getAvatarColor = (name: string): string => {
+  const colors = [
+    'bg-blue-500',
+    'bg-green-500', 
+    'bg-purple-500',
+    'bg-red-500',
+    'bg-yellow-500',
+    'bg-indigo-500',
+    'bg-pink-500',
+    'bg-orange-500',
+  ];
+  
+  const hash = name.split('').reduce((a, b) => {
+    a = ((a << 5) - a) + b.charCodeAt(0);
+    return a & a;
+  }, 0);
+  
+  return colors[Math.abs(hash) % colors.length];
+};
+
+// Avatar component
+const Avatar = ({ sender }: { sender: string }) => {
+  const initials = getInitials(sender);
+  const colorClass = getAvatarColor(sender);
+  
+  return (
+    <div className={`w-10 h-10 ${colorClass} rounded-full flex items-center justify-center flex-shrink-0`}>
+      <span className="text-white text-sm font-medium">{initials}</span>
+    </div>
+  );
+};
 
 function Inbox({
   selectedEmail,
@@ -275,11 +326,16 @@ function Inbox({
             className="bg-zinc-800/30 rounded-2xl p-4 cursor-pointer transition-all duration-300 ease-out hover:bg-zinc-800/50 transform"
             onClick={() => onEmailOpen(email.id)}
           >
-            <div className="text-base mb-1 text-white">{email.title}</div>
-            <div className="text-sm text-zinc-400 line-clamp-2">
-              {email.subtitle}
+            <div className="flex items-center gap-4">
+              <Avatar sender={email.sender} />
+              <div className="flex-1 min-w-0">
+                <div className="text-base mb-1 text-white">{email.title}</div>
+                <div className="text-sm text-zinc-400 line-clamp-2">
+                  {email.subtitle}
+                </div>
+                {/* <div className="mt-2 text-xs text-zinc-500">Tap to read</div> */}
+              </div>
             </div>
-            <div className="mt-2 text-xs text-zinc-500">Tap to read</div>
           </div>
         ))}
       </div>
