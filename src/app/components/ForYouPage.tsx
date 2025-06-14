@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Pill from "./ui/Pill";
 import EmailPill from "./ui/EmailPill";
 import { emails } from "./InboxPage";
-import Header from "./ui/Header";
 
 const notifications = [
   {
@@ -154,7 +153,6 @@ function Body() {
   const [activeTab, setActiveTab] = useState<"forYou" | "inbox">("forYou");
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [selectedEmail, setSelectedEmail] = useState<number | null>(null);
-  const [isEmailTransitioning, setIsEmailTransitioning] = useState(false);
 
   const toggleExpanded = (id: number) => {
     setExpandedItems((prev) => {
@@ -186,13 +184,7 @@ function Body() {
   };
 
   const handleEmailClose = () => {
-    setIsEmailTransitioning(true);
-    setTimeout(() => {
-      setSelectedEmail(null);
-      setTimeout(() => {
-        setIsEmailTransitioning(false);
-      }, 50);
-    }, 200);
+    setSelectedEmail(null);
   };
 
   const handlePreviousEmail = () => {
@@ -201,13 +193,7 @@ function Body() {
       (email) => email.id === selectedEmail
     );
     if (currentIndex > 0) {
-      setIsEmailTransitioning(true);
-      setTimeout(() => {
-        setSelectedEmail(inboxEmails[currentIndex - 1].id);
-        setTimeout(() => {
-          setIsEmailTransitioning(false);
-        }, 50);
-      }, 200);
+      setSelectedEmail(inboxEmails[currentIndex - 1].id);
     }
   };
 
@@ -217,13 +203,7 @@ function Body() {
       (email) => email.id === selectedEmail
     );
     if (currentIndex < inboxEmails.length - 1) {
-      setIsEmailTransitioning(true);
-      setTimeout(() => {
-        setSelectedEmail(inboxEmails[currentIndex + 1].id);
-        setTimeout(() => {
-          setIsEmailTransitioning(false);
-        }, 50);
-      }, 200);
+      setSelectedEmail(inboxEmails[currentIndex + 1].id);
     }
   };
 

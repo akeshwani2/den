@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Reply, Archive } from "lucide-react";
 import ComposeArea from "./ui/ComposeArea";
 
 interface ContentProps {
@@ -76,10 +75,8 @@ function Content({ selectedEmail, isTransitioning = false }: ContentProps) {
           </div>
         </div>
 
-        {/* Chat Messages Area */}
         <div className="flex-1 overflow-y-auto">
           <div className="p-4 space-y-4">
-            {/* Original Email as Incoming Message */}
             <div className="flex justify-start">
               <div className="w-full group">
                 <div className="bg-zinc-800/60 rounded-2xl rounded-tl-md p-4 backdrop-blur-sm border border-zinc-700/30">
@@ -164,7 +161,6 @@ function Content({ selectedEmail, isTransitioning = false }: ContentProps) {
           </div>
         </div>
 
-        {/* Compose Area - Always Visible */}
         <ComposeArea onSend={handleSendMessage} />
       </div>
 

@@ -5,13 +5,6 @@ interface ComposeAreaProps {
   onSend: (message: string) => void;
 }
 
-interface ChatMessage {
-  id: string;
-  content: string;
-  isOutgoing: boolean;
-  timestamp: Date;
-}
-
 export default function ComposeArea({
   onSend,
 }: ComposeAreaProps) {

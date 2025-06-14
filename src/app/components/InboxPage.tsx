@@ -324,7 +324,6 @@ function InboxPage({
                 className="bg-zinc-900/70 px-4 py-4 md:py-6 cursor-pointer transition-all duration-300 ease-out hover:bg-zinc-900 transform active:scale-[0.98] active:bg-zinc-800"
                 onClick={() => handleEmailOpen(email.id)}
               >
-                {/* Mobile Layout */}
                 <div className="block md:hidden">
                   <div className="flex items-start justify-between mb-2">
                     <div className="text-sm text-white font-medium truncate flex-1 pr-2">
@@ -342,7 +341,6 @@ function InboxPage({
                   </div>
                 </div>
 
-                {/* Desktop Layout */}
                 <div className="hidden md:flex items-center gap-4">
                   <div className="flex-1 min-w-0 flex items-start gap-4">
                     <div className="text-base text-white text-left w-100 flex-shrink-0">
