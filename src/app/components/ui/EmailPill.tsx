@@ -1,5 +1,9 @@
 "use client";
-import { ArrowLeft, ChevronUp, ChevronDown } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowUp,
+  ArrowDown,
+} from "lucide-react";
 import React from "react";
 
 interface EmailPillProps {
@@ -16,28 +20,28 @@ export default function EmailPill({
   return (
     <div>
       <div className="justify-center px-4 flex items-center z-70 relative">
-        <div className="fixed bottom-6 flex gap-2 bg-zinc-800 rounded-2xl p-1">
+        <div className="fixed bottom-6 flex gap-2 bg-zinc-800/50 rounded-2xl p-1">
           <button
             onClick={onClose}
-            className="p-3 rounded-xl hover:bg-zinc-700 transition-colors duration-200 text-zinc-300 hover:text-white"
+            className="p-3 rounded-xl hover:bg-zinc-700 cursor-pointer transition-colors duration-200 text-zinc-300 hover:text-white"
           >
             <ArrowLeft size={20} />
           </button>
 
           <button
             onClick={onPreviousEmail}
-            className="p-3 rounded-xl hover:bg-zinc-700 transition-colors duration-200 text-zinc-300 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed"
+            className="p-3 rounded-xl hover:bg-zinc-700 cursor-pointer transition-colors duration-200 text-zinc-300 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={!onPreviousEmail}
           >
-            <ChevronUp size={20} />
+            <ArrowUp size={20} />
           </button>
 
           <button
             onClick={onNextEmail}
-            className="p-3 rounded-xl hover:bg-zinc-700 transition-colors duration-200 text-zinc-300 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed"
+            className="p-3 rounded-xl hover:bg-zinc-700 cursor-pointer transition-colors duration-200 text-zinc-300 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={!onNextEmail}
           >
-            <ChevronDown size={20} />
+            <ArrowDown size={20} />
           </button>
         </div>
       </div>

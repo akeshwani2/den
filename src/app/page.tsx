@@ -1,4 +1,4 @@
-import Body from "./components/ForYou";
+import Body from "./components/Handler";
 
 export default function Home() {
   return (

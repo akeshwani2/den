@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import Header from "./ui/Header";
 import Pill from "./ui/Pill";
 import EmailPill from "./ui/EmailPill";
-import Inbox from "./Inbox";
+import { emails } from "./InboxPage";
+import Header from "./ui/Header";
 
 const notifications = [
   {
@@ -237,29 +237,6 @@ function Body() {
 
   return (
     <>
-      {!isEmailOpen && (
-        <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-black via-black/95 to-black/20 backdrop-blur-xs">
-          <Header />
-          {activeTab === "forYou" ? (
-            <div className="px-4 pb-4">
-              <div className="text-xl md:text-2xl">Hello, Arhaan.</div>
-              <div className="text-base md:text-base text-zinc-400">
-                Here&apos;s what needs your attention.
-              </div>
-            </div>
-          ) : (
-            activeTab === "inbox" && (
-              <div className="px-4 pb-4 flex items-center justify-between">
-                <div className="text-xl md:text-2xl">Inbox</div>
-                <div className="text-sm text-zinc-300 w-fit bg-zinc-700/30 rounded-xl p-3 transition-all duration-500 ease-out ">
-                  {inboxEmails.length} unread
-                </div>
-              </div>
-            )
-          )}
-        </div>
-      )}
-
       <div
         className={`transition-all duration-300 ease-out ${
           isTransitioning
@@ -365,12 +342,40 @@ function Body() {
             </div>
           </div>
         ) : (
-          <Inbox
-            selectedEmail={selectedEmail}
-            onEmailOpen={handleEmailOpen}
-            onEmailClose={handleEmailClose}
-            isTransitioning={isEmailTransitioning}
-          />
+          <div className="px-4 pb-24 relative">
+            <div className="flex flex-col">
+              {emails.map((email) => (
+                <div
+                  key={email.id}
+                  className="bg-zinc-900/70 px-4 py-6 cursor-pointer transition-all duration-300 ease-out hover:bg-zinc-900 transform"
+                  onClick={() => handleEmailOpen(email.id)}
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="flex-1 min-w-0 flex items-start gap-4">
+                      <div className="text-base text-white text-left w-100 flex-shrink-0">
+                        {email.sender}
+                      </div>
+                      <div className="text-base text-white font-medium text-left">
+                        {email.title}
+                      </div>
+                      <span className="text-zinc-400 text-base items-center">
+                        •
+                      </span>
+
+                      <div className="text-base text-zinc-400 truncate text-left flex-1">
+                        {email.subtitle}
+                      </div>
+                      <div className="text-xs text-white w-20 flex-shrink-0 text-right">
+                        {email.date}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-zinc-950 via-zinc-950/90  to-transparent pointer-events-none" />
+          </div>
         )}
       </div>
 
